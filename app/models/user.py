@@ -20,3 +20,7 @@ class User(SQLModel, table=True):
     rol: UserRoles
     status: UserStatus
     password: str = Field(max_length=256, min_length=6)
+
+class UserLogin(SQLModel):
+    username: str
+    password: str    

@@ -1,8 +1,8 @@
 """Initial Migration
 
-Revision ID: c9adbe701e88
+Revision ID: 2e7a5050a2ef
 Revises: 
-Create Date: 2022-06-22 19:11:22.901283
+Create Date: 2022-06-23 20:59:32.777410
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlmodel
 
 
 # revision identifiers, used by Alembic.
-revision = 'c9adbe701e88'
+revision = '2e7a5050a2ef'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -43,7 +43,7 @@ def upgrade() -> None:
     op.create_table('transaction',
     sa.Column('id', sqlmodel.sql.sqltypes.GUID(), nullable=False),
     sa.Column('type', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-    sa.Column('timestamp', sa.DateTime(), nullable=False),
+    sa.Column('timestamp', sa.DateTime(), nullable=True),
     sa.Column('amount', sa.Float(), nullable=False),
     sa.Column('account_id', sqlmodel.sql.sqltypes.GUID(), nullable=True),
     sa.ForeignKeyConstraint(['account_id'], ['account.id'], ),
