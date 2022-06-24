@@ -10,4 +10,4 @@ app.include_router(fintech_router)
 
 if __name__== '__main__':
     uvicorn.run('main:app',host="localhost",port=8000,reload=True)
-    #create_db_and_tables()
+    ###create_db_and_tables()
