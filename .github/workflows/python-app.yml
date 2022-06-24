@@ -25,6 +25,5 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
-      run: |
-        pytest -vvv
+    - name: Run unit tests
+      run: python -m pytest --import-mode=append tests/
