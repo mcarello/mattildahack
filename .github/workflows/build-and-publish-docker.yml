@@ -7,10 +7,10 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-    matrix:
-      python-version: [3.9]
+    strategy:
+      matrix:
+        python-version: [3.9.13]
     runs-on: ubuntu-latest
 
     steps:
