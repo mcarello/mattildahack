@@ -13,6 +13,10 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
     
+@user_router.get('/', status_code=status.HTTP_200_OK,description='status')
+def get_status():
+
+    return {'status': "ok"} 
 
 @user_router.get('/users',tags=['User Account'],description='List users')
 def get_users(_user=Depends(auth_handler.get_current_user)):
@@ -49,18 +53,6 @@ def register(user: User):
     session.commit()
 
     return u
-
-# @user_router.delete('/user/{username}', status_code=status.HTTP_202_ACCEPTED, tags=['User Account'],description='Delete a  user')
-# def delete_user(username: str):
-#     user = user_repo.get(username=username)
-#     if user != None:
-#         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Username not exist')
-
-#     session.delete(user)
-#     session.commit()
-
-#     return 
-
 
 @user_router.post('/login', tags=['User Account'])
 def login(user: UserLogin):
