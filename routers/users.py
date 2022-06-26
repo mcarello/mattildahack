@@ -13,11 +13,6 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
     
-@user_router.get('/', status_code=status.HTTP_200_OK,description='status')
-def get_status():
-
-    return {'status': "ok"} 
-
 @user_router.get('/users',tags=['User Account'],description='List users')
 def get_users(_user=Depends(auth_handler.get_current_user)):
     users = user_repo.select_all()
