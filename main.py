@@ -7,8 +7,8 @@ from routers.fintech import fintech_router
 app = FastAPI()
 
 
-app.include_router(user_router)#,prefix="/api.mcarello.io/v1")
-app.include_router(fintech_router)#,prefix="/api.mcarello.io/v1")
+app.include_router(user_router,prefix="/api.mcarello.io/v1")
+app.include_router(fintech_router,prefix="/api.mcarello.io/v1")
 
 
 
